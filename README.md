@@ -47,6 +47,8 @@ If the input question is Chinese, the script adds conservative English query exp
 
 - From a research hunch to a curated PDF pack.
 - Your EndNote library, turned into a research scout.
+- Keep your usual EndNote collecting habits; when an idea appears, mobilize thousands of papers already in your library.
+- 不改变平时收集文献的习惯；当一个研究 idea 出现时，立刻把 EndNote 库里成千上万篇文献调用起来。
 - Ask a question; get directions, papers, PDFs, and a review folder.
 - Stop searching file by file. Start from the research idea.
 - A Codex skill for idea-driven literature discovery.
