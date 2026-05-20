@@ -7,7 +7,7 @@ description: Use when the user gives a research idea and wants Codex to analyze 
 
 Use this skill for Chinese or English research-idea prompts such as:
 
-- "我要研究同一个地点连续几天发生多次4级地震"
+- "我要研究 流体与震群活动的关系。"
 - "帮我从本地 EndNote 库找这个想法相关的文献并整理"
 - "根据这个研究问题生成文献梳理文件夹"
 
@@ -21,11 +21,11 @@ Use this skill for Chinese or English research-idea prompts such as:
    - State the likely research directions and why they matter.
    - For earthquake/seismology ideas, consider directions such as earthquake swarms, repeated earthquakes, induced seismicity, fluid triggering, fault activation, catalog statistics, migration patterns, focal mechanisms, stress transfer, geothermal/reservoir/wastewater contexts, and hazard implications.
 3. Translate Chinese research ideas into English before searching.
-   - If the user prompt is Chinese, write an English translation first. Example: `我要研究内江地区连续几天发生多次4级地震` -> `I want to study multiple magnitude-4 earthquakes occurring in the Neijiang area over several consecutive days`.
+   - If the user prompt is Chinese, write an English translation first. Example: `我要研究 流体与震群活动的关系。` -> `I want to study the relationship between fluids and earthquake swarm activity`.
    - Search both Chinese-language and English-language literature in the local library. Do not treat a Chinese prompt as Chinese-only retrieval.
 4. Generate multiple Chinese and English search queries.
    - Include the original Chinese wording, the English translation, location names in Chinese and English, domain synonyms, mechanism terms, and method terms.
-   - For the Neijiang example, include queries such as `内江 连续 多次 4级 地震`, `Neijiang multiple M4 earthquakes consecutive days`, `earthquake swarm same location magnitude 4`, `repeating earthquakes waveform similarity`, and `seismicity cluster spatiotemporal migration`.
+   - For the fluid-swarm example, include queries such as `流体 震群 活动 关系`, `fluid earthquake swarm activity relationship`, `fluid triggering earthquake swarm`, `pore pressure seismicity swarm`, and `hydrothermal fluids swarm seismicity`.
    - Write these queries to a temporary text file when using the export script.
 5. Run the bundled script to create the archive.
    - Script path: `scripts/export_lit_review.py`
@@ -34,7 +34,7 @@ Use this skill for Chinese or English research-idea prompts such as:
 ```bash
 python3 ~/.codex/skills/skill-endnote-research/scripts/export_lit_review.py \
   --workspace /mnt/d/YIN/BaiduSyncdisk/endnote_file \
-  --question "我要研究同一个地点连续几天发生多次4级地震" \
+  --question "我要研究 流体与震群活动的关系。" \
   --queries-file /tmp/litlib_queries.txt \
   --limit 20
 ```

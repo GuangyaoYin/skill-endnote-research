@@ -35,6 +35,9 @@ ZH_EN_QUERY_TERMS = [
     ("4级", "M4 magnitude 4 Mw 4 ML 4"),
     ("地震", "earthquake seismicity"),
     ("震群", "earthquake swarm"),
+    ("震群活动", "earthquake swarm activity"),
+    ("流体", "fluid fluids"),
+    ("关系", "relationship coupling link"),
     ("重复地震", "repeating earthquakes"),
     ("波形相似", "waveform similarity"),
     ("同一震源区", "same source area"),
@@ -129,6 +132,13 @@ def expand_bilingual_queries(queries: list[str]) -> list[str]:
                 "multiple M4 earthquakes same area earthquake sequence",
                 "repeating earthquakes waveform similarity same source area",
                 "seismicity cluster spatiotemporal migration earthquake catalog",
+            ])
+        if "流体" in query or "震群" in query:
+            expanded.extend([
+                "fluid earthquake swarm activity relationship",
+                "fluid triggering earthquake swarm",
+                "pore pressure seismicity swarm",
+                "hydrothermal fluids swarm seismicity",
             ])
 
     seen = set()

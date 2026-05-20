@@ -4,7 +4,7 @@ Turn a rough research idea into a local EndNote literature pack.
 
 ![skill-endnote-research workflow](assets/skill-endnote-research-flowchart.png)
 
-`skill-endnote-research` is a Codex skill for researchers who keep PDFs in a local EndNote library indexed by `litlib`. Give it an idea such as "I want to study multiple M4 earthquakes occurring at the same place over several days"; it analyzes the possible research directions, searches the local literature index, copies matching PDFs, and creates a project-local literature review folder.
+`skill-endnote-research` is a Codex skill for researchers who keep PDFs in a local EndNote library indexed by `litlib`. Give it an idea such as "I want to study the relationship between fluids and earthquake swarm activity"; it analyzes the possible research directions, searches the local literature index, copies matching PDFs, and creates a project-local literature review folder.
 
 ## What It Does
 
@@ -35,11 +35,11 @@ The EndNote library path and the project output path are intentionally separate.
 ```bash
 python3 ~/.codex/skills/skill-endnote-research/scripts/export_lit_review.py \
   --workspace /mnt/d/YIN/BaiduSyncdisk/endnote_file \
-  --question "我要研究内江地区连续几天发生多次4级地震" \
-  --query "内江 连续 多次 4级 地震" \
-  --query "Neijiang multiple M4 earthquakes consecutive days" \
-  --query "repeating earthquakes waveform similarity same source area" \
-  --query "earthquake swarm same location M4 sequence" \
+  --question "我要研究 流体与震群活动的关系。" \
+  --query "流体 震群 活动 关系" \
+  --query "fluid earthquake swarm activity relationship" \
+  --query "fluid triggering earthquake swarm" \
+  --query "pore pressure seismicity swarm" \
   --limit 20
 ```
 
