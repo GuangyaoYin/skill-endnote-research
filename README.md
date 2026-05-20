@@ -2,7 +2,7 @@
 
 Turn a rough research idea into a local EndNote literature pack.
 
-![skill-endnote-research workflow](assets/skill-endnote-research-flowchart.png)
+![skill-endnote-research workflow](assets/skill-endnote-research-flowchart-fluid-swarm-bilingual.png)
 
 `skill-endnote-research` is a Codex skill for researchers who keep PDFs in a local EndNote library indexed by `litlib`. Give it an idea such as "I want to study the relationship between fluids and earthquake swarm activity"; it analyzes the possible research directions, searches the local literature index, copies matching PDFs, and creates a project-local literature review folder.
 
