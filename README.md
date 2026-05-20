@@ -7,7 +7,7 @@ Turn a rough research idea into a local EndNote literature pack.
 ## What It Does
 
 - Analyzes a research idea into searchable research directions.
-- Generates Chinese and English query families instead of relying on one keyword.
+- Translates Chinese research ideas into English and generates bilingual query families instead of relying on one keyword.
 - Searches `litlib/index/papers.jsonl` with title/abstract priority.
 - Confirms matches with cached full-text snippets.
 - Copies matched PDFs into the project where the skill is invoked.
@@ -33,11 +33,15 @@ The EndNote library path and the project output path are intentionally separate.
 ```bash
 python3 ~/.codex/skills/litlib-research-scout/scripts/export_lit_review.py \
   --workspace /mnt/d/YIN/BaiduSyncdisk/endnote_file \
-  --question "我要研究同一个地点连续几天发生多次4级地震" \
-  --query "重复地震 波形相似 同一震源区" \
+  --question "我要研究内江地区连续几天发生多次4级地震" \
+  --query "内江 连续 多次 4级 地震" \
+  --query "Neijiang multiple M4 earthquakes consecutive days" \
+  --query "repeating earthquakes waveform similarity same source area" \
   --query "earthquake swarm same location M4 sequence" \
   --limit 20
 ```
+
+If the input question is Chinese, the script adds conservative English query expansions for common seismology terms. Codex should still generate higher-quality bilingual queries from the research context before running the script.
 
 ## Promotional Taglines
 

@@ -20,10 +20,14 @@ Use this skill for Chinese or English research-idea prompts such as:
 2. Analyze the idea before searching.
    - State the likely research directions and why they matter.
    - For earthquake/seismology ideas, consider directions such as earthquake swarms, repeated earthquakes, induced seismicity, fluid triggering, fault activation, catalog statistics, migration patterns, focal mechanisms, stress transfer, geothermal/reservoir/wastewater contexts, and hazard implications.
-3. Generate multiple Chinese and English search queries.
-   - Include the user wording, domain synonyms, mechanism terms, and method terms.
+3. Translate Chinese research ideas into English before searching.
+   - If the user prompt is Chinese, write an English translation first. Example: `我要研究内江地区连续几天发生多次4级地震` -> `I want to study multiple magnitude-4 earthquakes occurring in the Neijiang area over several consecutive days`.
+   - Search both Chinese-language and English-language literature in the local library. Do not treat a Chinese prompt as Chinese-only retrieval.
+4. Generate multiple Chinese and English search queries.
+   - Include the original Chinese wording, the English translation, location names in Chinese and English, domain synonyms, mechanism terms, and method terms.
+   - For the Neijiang example, include queries such as `内江 连续 多次 4级 地震`, `Neijiang multiple M4 earthquakes consecutive days`, `earthquake swarm same location magnitude 4`, `repeating earthquakes waveform similarity`, and `seismicity cluster spatiotemporal migration`.
    - Write these queries to a temporary text file when using the export script.
-4. Run the bundled script to create the archive.
+5. Run the bundled script to create the archive.
    - Script path: `scripts/export_lit_review.py`
    - Example:
 
@@ -35,11 +39,11 @@ python3 ~/.codex/skills/litlib-research-scout/scripts/export_lit_review.py \
   --limit 20
 ```
 
-5. Read `文献列表.md` and `检索记录.json`.
+6. Read `文献列表.md` and `检索记录.json`.
    - Use title/abstract matches as the primary retrieval evidence.
    - Use full-text snippets for confirmation and close-reading direction.
    - If the result set is weak, say so explicitly and suggest better query families.
-6. Write or revise `总结报告.md` in the created output folder.
+7. Write or revise `总结报告.md` in the created output folder.
    - Include: research-direction map, key literature groups, useful methods, initial research questions, likely data requirements, and next close-reading steps.
    - Distinguish what the literature supports from Codex interpretation.
 

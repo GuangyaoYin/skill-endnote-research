@@ -23,6 +23,32 @@ CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 SPACE_RE = re.compile(r"[ \t\r\f\v]+")
 BAD_FILENAME_RE = re.compile(r'[<>:"/\\|?*\x00-\x1f]+')
 
+ZH_EN_QUERY_TERMS = [
+    ("内江", "Neijiang"),
+    ("四川", "Sichuan"),
+    ("同一个地点", "same location"),
+    ("同一地点", "same location"),
+    ("同一地区", "same area"),
+    ("连续几天", "several days"),
+    ("连续", "consecutive"),
+    ("多次", "multiple"),
+    ("4级", "M4 magnitude 4 Mw 4 ML 4"),
+    ("地震", "earthquake seismicity"),
+    ("震群", "earthquake swarm"),
+    ("重复地震", "repeating earthquakes"),
+    ("波形相似", "waveform similarity"),
+    ("同一震源区", "same source area"),
+    ("诱发地震", "induced seismicity"),
+    ("流体触发", "fluid triggering"),
+    ("孔隙压力", "pore pressure"),
+    ("断层活化", "fault activation"),
+    ("地震序列", "earthquake sequence"),
+    ("余震", "aftershock sequence"),
+    ("时空迁移", "spatiotemporal migration"),
+    ("地震目录", "earthquake catalog"),
+    ("重定位", "earthquake relocation"),
+]
+
 
 def clean_text(text: str) -> str:
     text = text.replace("\x00", " ")
@@ -78,6 +104,36 @@ def read_queries(args: argparse.Namespace) -> list[str]:
     seen = set()
     unique = []
     for query in queries:
+        normalized = SPACE_RE.sub(" ", query).strip()
+        key = normalized.lower()
+        if normalized and key not in seen:
+            seen.add(key)
+            unique.append(normalized)
+    return expand_bilingual_queries(unique)
+
+
+def expand_bilingual_queries(queries: list[str]) -> list[str]:
+    expanded = list(queries)
+    for query in queries:
+        if not CJK_RE.search(query):
+            continue
+        english_terms = []
+        for zh, en in ZH_EN_QUERY_TERMS:
+            if zh in query:
+                english_terms.append(en)
+        if english_terms:
+            expanded.append(" ".join(dict.fromkeys(" ".join(english_terms).split())))
+        if "地震" in query:
+            expanded.extend([
+                "earthquake swarm same location consecutive days",
+                "multiple M4 earthquakes same area earthquake sequence",
+                "repeating earthquakes waveform similarity same source area",
+                "seismicity cluster spatiotemporal migration earthquake catalog",
+            ])
+
+    seen = set()
+    unique = []
+    for query in expanded:
         normalized = SPACE_RE.sub(" ", query).strip()
         key = normalized.lower()
         if normalized and key not in seen:
