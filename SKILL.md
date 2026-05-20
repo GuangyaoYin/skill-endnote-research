@@ -1,9 +1,9 @@
 ---
-name: litlib-research-scout
+name: skill-endnote-research
 description: Use when the user gives a research idea and wants Codex to analyze possible research directions, search the local EndNote litlib index, create a literature list, copy matching PDFs, and generate a literature-review folder with a report. This skill is designed for the local EndNote workspace that contains litlib/index/papers.jsonl and My EndNote Library-Saved(1).Data/PDF.
 ---
 
-# Litlib Research Scout
+# Skill EndNote Research
 
 Use this skill for Chinese or English research-idea prompts such as:
 
@@ -32,7 +32,7 @@ Use this skill for Chinese or English research-idea prompts such as:
    - Example:
 
 ```bash
-python3 ~/.codex/skills/litlib-research-scout/scripts/export_lit_review.py \
+python3 ~/.codex/skills/skill-endnote-research/scripts/export_lit_review.py \
   --workspace /mnt/d/YIN/BaiduSyncdisk/endnote_file \
   --question "我要研究同一个地点连续几天发生多次4级地震" \
   --queries-file /tmp/litlib_queries.txt \

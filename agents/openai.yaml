@@ -1,7 +1,7 @@
 interface:
-  display_name: "Litlib Research Scout"
+  display_name: "Skill EndNote Research"
   short_description: "Analyze ideas and export local EndNote literature packs"
-  default_prompt: "Use $litlib-research-scout to analyze this research idea, search my local EndNote library, copy related PDFs, and create a literature review folder."
+  default_prompt: "Use $skill-endnote-research to analyze this research idea, search my local EndNote library, copy related PDFs, and create a literature review folder."
 
 policy:
   allow_implicit_invocation: true
