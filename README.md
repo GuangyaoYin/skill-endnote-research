@@ -13,14 +13,14 @@ Turn a rough research idea into a local EndNote literature pack.
 - Searches `litlib/index/papers.jsonl` with title/abstract priority.
 - Confirms matches with cached full-text snippets.
 - Copies matched PDFs into the project where the skill is invoked.
-- Creates `文献列表.md`, `总结报告.md`, `检索记录.json`, and a `pdfs/` folder.
+- Creates `文献列表.md` (literature list), `总结报告.md` (summary report), `检索记录.json` (search log), and a `pdfs/` folder.
 
 ## Output Layout
 
 When used from a project directory, the result is created in that project:
 
 ```text
-文献梳理/
+Literature review folder (`文献梳理/`)
   <timestamp>-<question-slug>/
     文献列表.md
     总结报告.md
@@ -28,7 +28,7 @@ When used from a project directory, the result is created in that project:
     pdfs/
 ```
 
-The EndNote library path and the project output path are intentionally separate. `--workspace` points to the EndNote/litlib library; output defaults to `./文献梳理` in the directory where the command is run.
+The EndNote library path and the project output path are intentionally separate. `--workspace` points to the EndNote/litlib library; output defaults to the literature review folder (`./文献梳理`) in the directory where the command is run.
 
 ## Example
 
@@ -50,7 +50,6 @@ If the input question is Chinese, the script adds conservative English query exp
 - From a research hunch to a curated PDF pack.
 - Your EndNote library, turned into a research scout.
 - Keep your usual EndNote collecting habits; when an idea appears, mobilize thousands of papers already in your library.
-- 不改变平时收集文献的习惯；当一个研究 idea 出现时，立刻把 EndNote 库里成千上万篇文献调用起来。
 - Ask a question; get directions, papers, PDFs, and a review folder.
 - Stop searching file by file. Start from the research idea.
 - A Codex skill for idea-driven literature discovery.
